@@ -4,6 +4,8 @@ package dialer
 
 import (
 	"net"
+
+	"github.com/metacubex/tfo-go"
 )
 
 type tcpDialer = ExtendedTCPDialer
