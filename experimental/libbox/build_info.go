@@ -118,15 +118,6 @@ func readAndroidVPNTypeEntry(zipFile *zip.File) (*AndroidVPNType, error) {
 			vpnType.CoreType = pkgType
 		}
 	}
-	if vpnType.CoreType == androidVPNCoreTypeUnknown {
-		for dependency := range dependencies {
-			pkgType, loaded := determinePkgTypeSecondary(dependency)
-			if loaded {
-				vpnType.CoreType = pkgType
-				return &vpnType, nil
-			}
-		}
-	}
 	if vpnType.CoreType != androidVPNCoreTypeUnknown {
 		vpnType.CorePath, _ = determineCorePath(buildInfo, vpnType.CoreType)
 		return &vpnType, nil
@@ -153,10 +144,6 @@ func determinePkgType(pkgName string) (string, bool) {
 	return "", false
 }
 
-func determinePkgTypeSecondary(pkgName string) (string, bool) {
-	pkgNameLower := strings.ToLower(pkgName)
-	return "", false
-}
 
 func determineCorePath(pkgInfo *buildinfo.BuildInfo, pkgType string) (string, bool) {
 	switch pkgType {
