@@ -18,7 +18,6 @@ const (
 	androidVPNCoreTypeShadowsocks = "Shadowsocks"
 	androidVPNCoreTypeClash       = "Clash"
 	androidVPNCoreTypeV2Ray       = "V2Ray"
-	androidVPNCoreTypeWireGuard   = "WireGuard"
 	androidVPNCoreTypeSingBox     = "sing-box"
 	androidVPNCoreTypeUnknown     = "Unknown"
 )
