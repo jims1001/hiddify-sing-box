@@ -61,7 +61,6 @@ require (
 
 //replace github.com/sagernet/sing => ../sing
 
-require github.com/sagernet/wireguard-go v0.0.0-00010101000000-000000000000
 
 require (
 	github.com/ajg/form v1.5.1 // indirect
@@ -122,6 +121,5 @@ require (
 	lukechampine.com/blake3 v1.3.0 // indirect
 )
 
-replace github.com/sagernet/wireguard-go => github.com/hiddify/wireguard-go v0.0.0-20240727191222-383c1da14ff1
 
 replace github.com/xtls/xray-core => github.com/hiddify/xray-core v0.0.0-20240902024714-0fcb0895bb4b

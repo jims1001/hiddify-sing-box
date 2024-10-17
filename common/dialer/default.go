@@ -15,7 +15,7 @@ import (
 	N "github.com/sagernet/sing/common/network"
 )
 
-var _ WireGuardListener = (*DefaultDialer)(nil)
+
 
 type DefaultDialer struct {
 	dialer4             tcpDialer
@@ -133,11 +133,7 @@ func NewDefault(router adapter.Router, options option.DialerOptions) (*DefaultDi
 		tlsFragment.Size = size
 
 	}
-	if options.IsWireGuardListener {
-		for _, controlFn := range wgControlFns {
-			listener.Control = control.Append(listener.Control, controlFn)
-		}
-	}
+
 	tcpDialer4, err := newTCPDialer(dialer4, options.TCPFastOpen, tlsFragment)
 	if err != nil {
 		return nil, err
