@@ -155,9 +155,6 @@ func determinePkgType(pkgName string) (string, bool) {
 
 func determinePkgTypeSecondary(pkgName string) (string, bool) {
 	pkgNameLower := strings.ToLower(pkgName)
-	if strings.Contains(pkgNameLower, "wireguard") {
-		return androidVPNCoreTypeWireGuard, true
-	}
 	return "", false
 }
 
@@ -185,8 +182,6 @@ func determineCorePath(pkgInfo *buildinfo.BuildInfo, pkgType string) (string, bo
 		return "", false
 	case androidVPNCoreTypeSingBox:
 		return determineCorePathForPkgs(pkgInfo, []string{"github.com/sagernet/sing-box"}, []string{"sing-box"})
-	case androidVPNCoreTypeWireGuard:
-		return determineCorePathForPkgs(pkgInfo, []string{"golang.zx2c4.com/wireguard"}, []string{"wireguard"})
 	default:
 		return "", false
 	}
